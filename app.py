@@ -3,6 +3,38 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
 import plotly.express as px
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
+client = OpenAI(api_key=os.getenv("OPEN_API_KEY"))
+
+def generate_ai_pricing_insight(product_id, elasticity, avg_price,avg_units, total_revenue, total_profit):
+    prompt = f"""
+    You are a pricing analytics assistant.
+
+    Analyze the following pricing metrics and provide:
+    1. A short key finding
+    2. A business risk
+    3. A pricing recommendation
+
+    Data:
+    - Produc ID : {product_id}
+    - Average Price : {avg_price:.2f}
+    - Estimated Elasticity : {elasticity:.2f}
+    - Average Units Sold : {avg_units:.2f}
+    - Total Revenue : {total_revenue:.2f}
+    - Total Profit : {total_profit:.2f}
+
+    Keep the response concise, business-friendly, and structured in 3 bullet points.
+    """
+    response = client.responses.create(
+        model = "gpt-4.1-mini",
+        input = prompt
+    )
+
+    return response.output_text
 
 
 st.set_page_config(page_title="AI Pricing Analytics", layout="wide")
@@ -188,7 +220,57 @@ if upload_file:
 
             else:
                 st.warning("Run elasticity analysis first.")
+    # AI Pricing Insights
 
+    st.subheader("AI Pricing Insights")
+
+    if required_cols.issubset(df.columns):
+        ai_product = st.selectbox(
+            "Select Product for AI Insight",
+            sorted(df["product_id"].dropna().unique()),
+            key="ai_product"
+        )
+        ai_df = df[df["product_id"] == ai_product].copy()
+        ai_df = ai_df[(ai_df["price"] > 0) & (ai_df["units_sold"] > 0)]
+
+        if len(ai_df) >= 2:
+            ai_df["log_price"] = np.log(ai_df["price"])
+            ai_df["log_units"] = np.log(ai_df["units_sold"])
+
+            X = ai_df[["log_price"]]
+            y = ai_df["log_units"]
+
+            model = LinearRegression()
+            model.fit(X, y)
+
+            ai_elasticity = model.coef_[0]
+            avg_price = ai_df["price"].mean()
+            avg_units = ai_df["units_sold"].mean()
+            total_revenue = ai_df["revenue"].sum() if "revenue" in ai_df.columns else 0
+
+            if "cogs" in ai_df.columns:
+                ai_df["unit_margin"] = ai_df["price"] - ai_df["cogs"]
+                ai_df["profit"] = ai_df["unit_margin"] * ai_df["units_sold"]
+                total_profit = ai_df["profit"].sum()
+            else:
+                total_profit = 0
+
+            if st.button("Generate AI Insight"):
+                with st.spinner("Generating recommendation..."):
+                    try:
+                        insight = generate_ai_pricing_insight(
+                            product_id=ai_product,
+                            elasticity=ai_elasticity,
+                            avg_price=avg_price,
+                            avg_units=avg_units,
+                            total_revenue=total_revenue,
+                            total_profit=total_profit
+                        )
+                        st.markdown(insight)
+                    except Exception as e:
+                        st.error(f"Error generating AI insight: {e}")
+        else:
+            st.warning("Not enough valid data points for AI insights.")
 
 
 

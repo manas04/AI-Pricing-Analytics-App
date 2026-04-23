@@ -4,7 +4,7 @@ A Streamlit-based AI-powered pricing analytics application built with Python to 
 
 This project demonstrates how data science, pricing strategy, and AI can be combined to move from descriptive analytics to prescriptive decision-making.
 
-**Key Features**
+<h3>**Key Features**</h3>
 Upload custom CSV datasets
 Interactive KPI dashboard (Revenue, Margin, Pricing Metrics)
 Price elasticity estimation using statistical modeling

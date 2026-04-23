@@ -1,4 +1,4 @@
-**AI Pricing Analytics App**
+<h1>**AI Pricing Analytics App**</h1>
 
 A Streamlit-based AI-powered pricing analytics application built with Python to analyze revenue, margin, and demand patterns, and generate intelligent pricing recommendations.
 

@@ -1,112 +1,126 @@
 <h1><b>AI Pricing Analytics App</b></h1>
+
 <p>
-A Streamlit-based AI-powered pricing analytics application built with Python to analyze revenue, margin, and demand patterns, and generate intelligent pricing recommendations.
-
-This project demonstrates how data science, pricing strategy, and AI can be combined to move from descriptive analytics to prescriptive decision-making.
-
+  A Streamlit-based AI-powered pricing analytics application built with Python to analyze revenue, margin, and demand patterns, and generate intelligent pricing recommendations.
 </p>
 
-<h2><b></b>Key Features</b></h3>
-Upload custom CSV datasets
-Interactive KPI dashboard (Revenue, Margin, Pricing Metrics)
-Price elasticity estimation using statistical modeling
-Scenario-based pricing simulations
-AI-powered pricing insights and recommendations
-Data-driven decision support for pricing strategy
+<p>
+  This project demonstrates how data science, pricing strategy, and AI can be combined to move from descriptive analytics to prescriptive decision-making.
+</p>
+
+<h2><b>Key Features</b></h2>
+<ul>
+  <li>Upload custom CSV datasets</li>
+  <li>Interactive KPI dashboard (Revenue, Margin, Pricing Metrics)</li>
+  <li>Price elasticity estimation using statistical modeling</li>
+  <li>Scenario-based pricing simulations</li>
+  <li>AI-powered pricing insights and recommendations</li>
+  <li>Data-driven decision support for pricing strategy</li>
+</ul>
 
 <h2><b>What This Project Solves</b></h2>
+<p>
+  Traditional pricing analytics answers:<br>
+  <i>"What happened?"</i>
+</p>
 
-Traditional pricing analytics answers:
-"What happened?"
+<p>
+  This application goes further:<br>
+  <i>"What should we do next?"</i>
+</p>
 
-This application goes further:
-"What should we do next?"
+<p>It helps users:</p>
+<ul>
+  <li>Understand demand sensitivity to pricing</li>
+  <li>Evaluate pricing strategies</li>
+  <li>Simulate revenue and profit impact</li>
+  <li>Generate actionable recommendations</li>
+</ul>
 
-It helps users:
+<h2><b>Tech Stack</b></h2>
+<ul>
+  <li>Python</li>
+  <li>Streamlit</li>
+  <li>Pandas</li>
+  <li>NumPy</li>
+  <li>Scikit-learn</li>
+  <li>Plotly</li>
+  <li>OpenAI API (for AI insights)</li>
+</ul>
 
-• Understand demand sensitivity to pricing
-• Evaluate pricing strategies
-• Simulate revenue and profit impact
-• Generate actionable recommendations
+<h2><b>Environment Setup (Required)</b></h2>
+<p>
+  This application uses OpenAI (ChatGPT) APIs to generate AI-powered pricing insights.
+</p>
 
-**Tech Stack**
+<p>
+  Before running the app, you must configure your API key.
+</p>
 
-  • Python
-  • Streamlit
-  • Pandas
-  • NumPy
-  • Scikit-learn
-  • Plotly
-  • OpenAI API (for AI insights)
+<h3><b>Step 1: Create a <code>.env</code> file</b></h3>
+<pre><code>touch .env</code></pre>
 
+<h3><b>Step 2: Add your API key</b></h3>
+<pre><code>OPENAI_API_KEY=your_api_key_here</code></pre>
 
-**Environment Setup (Required)**
+<h3><b>Step 3: Ensure <code>.env</code> is not committed</b></h3>
+<ul>
+  <li>Add <code>.env</code> to your <code>.gitignore</code></li>
+</ul>
 
-This application uses OpenAI (ChatGPT) APIs to generate AI-powered pricing insights.
+<p>
+  <b>Important:</b> Without this setup, AI-based insights will not function.
+</p>
 
-Before running the app, you must configure your API key.
+<h2><b>Run Locally</b></h2>
 
-**Step 1: Create a .env file**
+<h3><b>1. Clone the repository</b></h3>
+<pre><code>git clone https://github.com/manas04/AI-Pricing-Analytics-App.git
+cd AI-Pricing-Analytics-App</code></pre>
 
-touch .env
+<h3><b>2. Install dependencies</b></h3>
+<pre><code>pip install -r requirements.txt</code></pre>
 
-**Step 2: Add your API key**
+<h3><b>3. Set up environment variables</b></h3>
+<p>(Refer to the Environment Setup section above)</p>
 
-OPENAI_API_KEY=your_api_key_here
+<h3><b>4. Run the application</b></h3>
+<pre><code>streamlit run app.py</code></pre>
 
-**Step 3: Ensure .env is not committed**
-Add .env to `.gitignore
+<h2><b>Example Use Cases</b></h2>
+<ul>
+  <li>Pricing strategy optimization</li>
+  <li>Revenue and margin analysis</li>
+  <li>Promotional impact evaluation</li>
+  <li>Demand forecasting and sensitivity analysis</li>
+  <li>Business decision support for pricing teams</li>
+</ul>
 
-Important: Without this setup, AI-based insights will not function.
-
-**Run Locally**
-**1. Clone the repository**
-
-git clone https://github.com/manas04/AI-Pricing-Analytics-App.git
-
-cd AI-Pricing-Analytics-App
-
-**2. Install dependencies**
-
-pip install -r requirements.txt
-
-**3. Set up environment variables**
-
-(Refer to Environment Setup section above)
-
-**4. Run the application**
-
-streamlit run app.py
-
-**Example Use Cases**
-
-  • Pricing strategy optimization
-  • Revenue and margin analysis
-  • Promotional impact evaluation
-  • Demand forecasting and sensitivity analysis
-  • Business decision support for pricing teams
-
-**Project Structure**
-
-app.py
+<h2><b>Project Structure</b></h2>
+<pre><code>app.py
 requirements.txt
 README.md
 data/
-utils/
+utils/</code></pre>
 
-**Future Improvements**
+<h2><b>Future Improvements</b></h2>
+<ul>
+  <li>Advanced machine learning models for demand forecasting</li>
+  <li>Dynamic pricing optimization engine</li>
+  <li>Integration with real-time data sources</li>
+  <li>Deployment as a web-based SaaS tool</li>
+</ul>
 
-• Advanced machine learning models for demand forecasting
-• Dynamic pricing optimization engine
-• Integration with real-time data sources
-• Deployment as a web-based SaaS tool
+<h2><b>Contributing</b></h2>
+<p>
+  Feel free to fork this repository, raise issues, or submit pull requests.
+</p>
 
-**Contributing**
+<h2><b>Contact</b></h2>
+<p>
+  If you're working on pricing, revenue analytics, or data science problems, feel free to connect.
+</p>
 
-Feel free to fork this repository, raise issues, or submit pull requests.
-
-**Contact**
-
-If you're working on pricing, revenue analytics, or data science problems, feel free to connect!
-
-If you found this useful, please star the repo!
+<p>
+  ⭐ If you found this useful, please star the repo!
+</p>

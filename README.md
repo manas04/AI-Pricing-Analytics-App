@@ -6,7 +6,7 @@ This project demonstrates how data science, pricing strategy, and AI can be comb
 
 </p>
 
-<h3><b></b>Key Features</b></h3>
+<h2><b></b>Key Features</b></h3>
 Upload custom CSV datasets
 Interactive KPI dashboard (Revenue, Margin, Pricing Metrics)
 Price elasticity estimation using statistical modeling
@@ -14,7 +14,7 @@ Scenario-based pricing simulations
 AI-powered pricing insights and recommendations
 Data-driven decision support for pricing strategy
 
-**What This Project Solves**
+<h2><b>What This Project Solves</b></h2>
 
 Traditional pricing analytics answers:
 "What happened?"

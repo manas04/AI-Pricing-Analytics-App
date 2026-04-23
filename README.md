@@ -1,8 +1,10 @@
-<h1>**AI Pricing Analytics App**</h1>
-
+<h1><b>I Pricing Analytics App</b></h1>
+<p>
 A Streamlit-based AI-powered pricing analytics application built with Python to analyze revenue, margin, and demand patterns, and generate intelligent pricing recommendations.
 
 This project demonstrates how data science, pricing strategy, and AI can be combined to move from descriptive analytics to prescriptive decision-making.
+
+</p>
 
 <h3><b></b>Key Features</b></h3>
 Upload custom CSV datasets
